@@ -1,5 +1,7 @@
-# import re
+import numpy as np
 from datetime import datetime
+
+
 
 def contains(needle,haystack):
     tempstack = sorted(haystack)
@@ -101,13 +103,65 @@ def subanagrams(wordlist,filtertext):
                 matches += 1
     return matches
 
+def createsublist(wordlist,filtertext, size = 0):
+    sublist = []
+
+    for word in wordlist:
+        if contains(word,filtertext):
+            if (size > 0) and (len(word) == size):
+                sublist.append(word)
+            elif size == 0:
+                sublist.append(word)
+
+    return sublist
+
+# https://stackoverflow.com/questions/73803844/find-unique-sums-to-add-to-total-using-only-positive-integers-above-0
+def find_sums(n):
+    sums = []
+    all_sums = []
+    find_sums_helper(n, n, sums, all_sums)
+    return all_sums
+
+def createlengthlist(list,length):
+    sublist = []
+    for word in list:
+        if len(word)==length:
+            sublist.append(word)
+    return sublist
+
+def find_sums_helper(n, n_max, sums, all_sums):
+    if n == 0:
+        all_sums.append(sums)
+        return
+
+    for i in reversed(range(1, min(n, n_max) + 1)):
+        find_sums_helper(n - i, i, sums + [i], all_sums)
+
+def wordcombofinder(wordlist,filtertext):
+
+    pcombos = find_sums(len(filtertext))
+    print(pcombos)
+    sublist = createsublist(wordlist, filtertext)
+
+
+    for wordset in pcombos:
+        combolist = []
+        # create possibiliites
+        for wordlen in wordset:
+            alist = createlengthlist(sublist, wordlen)
+            combolist.append(alist)
+
+        # find possibilities
+        print(combolist)
 
 allwords = readdict("Woorde.csv")
 timestart = datetime.now()
+
 # t = subanagrams(allwords,"KNOPIESPINNEKOP")
-t2 = runfilter(allwords,"*POE")
+wordcombofinder(allwords,"KNOPIESPINNEKOP")
+
 print(datetime.now() - timestart)
-print('Matches: ' + str(t2))
+
 
 # runfilter(allwords,'V.D.')
 # runfilter(allwords,'S.P.R')
