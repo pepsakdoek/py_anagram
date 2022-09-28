@@ -1,8 +1,7 @@
+import itertools
+
 import numpy as np
 from datetime import datetime
-
-
-
 def contains(needle,haystack):
     tempstack = sorted(haystack)
     tempn = sorted(needle)
@@ -16,6 +15,24 @@ def contains(needle,haystack):
 
     return True
 
+def diffletters(word1,word2):
+    if len(word1) <= len(word2):
+        needle = word1
+        haystack = word2
+    else:
+        needle = word2
+        haystack = word1
+
+    tempstack = haystack
+
+    for x in needle:
+        for y in tempstack:
+            if x == y:
+                i = tempstack.index(x)
+                tempstack = tempstack[:i] + tempstack[i+1:]
+                break
+
+    return tempstack
 
 def readdict(dname):
     f = open(dname,"r")
@@ -137,28 +154,58 @@ def find_sums_helper(n, n_max, sums, all_sums):
     for i in reversed(range(1, min(n, n_max) + 1)):
         find_sums_helper(n - i, i, sums + [i], all_sums)
 
+def subcontains(word,word2):
+    if len(word) > len(word2):
+        needle = word2
+        haystack = word
+    else:
+        needle = word
+        haystack = word2
+
+    if not contains(needle,haystack):
+        return [haystack,needle]
+    else:
+        return False
+def possibilityhelper(wordlist,filtertext):
+    returnvalue = []
+    for element in itertools.product(*wordlist):
+        teststring = ''.join(element)
+        if sorted(teststring) == sorted(filtertext):
+            returnvalue.append(element)
+    return returnvalue
+
 def wordcombofinder(wordlist,filtertext):
 
     pcombos = find_sums(len(filtertext))
     print(pcombos)
     sublist = createsublist(wordlist, filtertext)
 
-
     for wordset in pcombos:
         combolist = []
-        # create possibiliites
+        # create possibilities
         for wordlen in wordset:
             alist = createlengthlist(sublist, wordlen)
             combolist.append(alist)
 
+        # reduce obvious wrong combinations
+        if [] in combolist:
+            continue
+
+        #print(combolist)
+
         # find possibilities
-        print(combolist)
+        pos = possibilityhelper(combolist,filtertext)
+        if pos:
+            print(pos)
+            continue
+
 
 allwords = readdict("Woorde.csv")
 timestart = datetime.now()
 
 # t = subanagrams(allwords,"KNOPIESPINNEKOP")
-wordcombofinder(allwords,"KNOPIESPINNEKOP")
+wordcombofinder(allwords,"KNOPIES")
+# runfilter(allwords,'se.a.')
 
 print(datetime.now() - timestart)
 
