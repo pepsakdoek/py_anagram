@@ -173,7 +173,16 @@ def possibilityhelper(wordlist,filtertext):
             returnvalue.append(element)
     return set(returnvalue)
 
-def wordcombofinder(wordlist,filtertext,minlength = 2):
+def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
+    # this is very inefficient way of doing this, so I have 2 parameters to control the vast amounts of combinations
+    # If the total wordlength is less than like 10 you should be fine for runtime, but it explodes exponentially
+    # after that
+    # - minlength:  the minimum size of word we want to consider, increasing this reduces runtime considerably,
+    #               3 is recommended, but you miss out on important words sometimes like 'IN','ON','BY' etc.
+    # - minmax:     this is the minimum size of the biggest word, so you might have a 5 letter word and a bunch
+    #               of smaller ones
+    # - maxwords:   The max number of words
+    #
     returnvalue = []
     pcombos = find_sums(len(filtertext))
     print(pcombos)
@@ -182,6 +191,10 @@ def wordcombofinder(wordlist,filtertext,minlength = 2):
     for wordset in pcombos:
         combolist = []
         # create possibilities
+        if max(wordset) < minmax:
+            continue
+        if len(wordset) > maxwords:
+            continue
         for wordlen in wordset:
             # have a minimum word length to optimize it a little
             if wordlen >= minlength:
@@ -203,8 +216,12 @@ def wordcombofinder(wordlist,filtertext,minlength = 2):
 allwords = readdict("Woorde.csv")
 timestart = datetime.now()
 
-t = subanagrams(allwords,"PIENKPIENKSONOP")
-wordcombofinder(allwords,"PIENKPIENKSONOP",3)
+f = open("output.txt","w")
+#t = subanagrams(allwords,"PIENKPIENKSONOP")
+#f.write(repr(t)+"\n")
+t = wordcombofinder(allwords,"PIENKPIENKSONOP",2,5,5)
+f.write(repr(t)+"\n")
+f.close()
 # runfilter(allwords,'se.a.')
 
 print(datetime.now() - timestart)
