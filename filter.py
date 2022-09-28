@@ -165,6 +165,7 @@ def subcontains(word,word2):
         return [haystack,needle]
     else:
         return False
+
 def possibilityhelper(wordlist,filtertext):
     returnvalue = []
     for element in itertools.product(*wordlist):
@@ -183,6 +184,8 @@ def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
     #               of smaller ones
     # - maxwords:   The max number of words
     #
+    # Suggestion for long words, use the subanagrams to find words that you like, then reduce the letters in the
+    # big word to reduce the workload
     returnvalue = []
     pcombos = find_sums(len(filtertext))
     print(pcombos)
@@ -213,13 +216,14 @@ def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
 
     return returnvalue
 
+# tests and usage
 allwords = readdict("Woorde.csv")
 timestart = datetime.now()
 
 f = open("output.txt","w")
 #t = subanagrams(allwords,"PIENKPIENKSONOP")
 #f.write(repr(t)+"\n")
-t = wordcombofinder(allwords,"PIENKPIENKSONOP",2,5,5)
+t = wordcombofinder(allwords,"INGENIEURSWESE",2,5,5)
 f.write(repr(t)+"\n")
 f.close()
 # runfilter(allwords,'se.a.')
