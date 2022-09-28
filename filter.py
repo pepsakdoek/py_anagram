@@ -41,7 +41,7 @@ def readdict(dname):
     return allwords
 
 def runfilter(wordlist,filtertext):
-    matches = 0
+    returnvalue = []
     print('Filter: ' + filtertext)
     found = False
     multilen = False
@@ -75,17 +75,16 @@ def runfilter(wordlist,filtertext):
                 continue
 
         if matching and multilen:
-            print(word)
-            matches += 1
-        elif matching and len(word) == len(filtertext):
-            print(word)
-            matches += 1
+            returnvalue.append(word)
 
-    return matches
+        elif matching and len(word) == len(filtertext):
+            returnvalue.append(word)
+
+
+    return returnvalue
 
 def subanagrams(wordlist,filtertext):
-    print('Filter: ' + filtertext)
-    matches = 0
+    returnvalue = []
     print('Filter: ' + filtertext)
     found = False
 
@@ -116,9 +115,9 @@ def subanagrams(wordlist,filtertext):
         # check if the two sorted are the same
         if contains(word,newcompare):
             if word != '':
-                print(word)
-                matches += 1
-    return matches
+                returnvalue.append(word)
+
+    return returnvalue
 
 def createsublist(wordlist,filtertext, size = 0):
     sublist = []
@@ -172,10 +171,10 @@ def possibilityhelper(wordlist,filtertext):
         teststring = ''.join(element)
         if sorted(teststring) == sorted(filtertext):
             returnvalue.append(element)
-    return returnvalue
+    return set(returnvalue)
 
-def wordcombofinder(wordlist,filtertext):
-
+def wordcombofinder(wordlist,filtertext,minlength = 2):
+    returnvalue = []
     pcombos = find_sums(len(filtertext))
     print(pcombos)
     sublist = createsublist(wordlist, filtertext)
@@ -184,27 +183,28 @@ def wordcombofinder(wordlist,filtertext):
         combolist = []
         # create possibilities
         for wordlen in wordset:
-            alist = createlengthlist(sublist, wordlen)
-            combolist.append(alist)
+            # have a minimum word length to optimize it a little
+            if wordlen >= minlength:
+                alist = createlengthlist(sublist, wordlen)
+                combolist.append(alist)
 
         # reduce obvious wrong combinations
         if [] in combolist:
             continue
 
-        #print(combolist)
-
         # find possibilities
         pos = possibilityhelper(combolist,filtertext)
         if pos:
-            print(pos)
+            returnvalue.append(pos)
             continue
 
+    return returnvalue
 
 allwords = readdict("Woorde.csv")
 timestart = datetime.now()
 
-# t = subanagrams(allwords,"KNOPIESPINNEKOP")
-wordcombofinder(allwords,"KNOPIES")
+t = subanagrams(allwords,"PIENKPIENKSONOP")
+wordcombofinder(allwords,"PIENKPIENKSONOP",3)
 # runfilter(allwords,'se.a.')
 
 print(datetime.now() - timestart)
