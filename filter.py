@@ -1,7 +1,8 @@
 import itertools
-
 import numpy as np
 from datetime import datetime
+
+
 def contains(needle,haystack):
     tempstack = sorted(haystack)
     tempn = sorted(needle)
@@ -36,19 +37,20 @@ def diffletters(word1,word2):
 
 def readdict(dname):
     f = open(dname,"r")
-    allwords = f.read().split("\n")
+    allwords = f.read().upper().split("\n")
     # print(len(allwords))
     return allwords
 
 def runfilter(wordlist,filtertext):
+    filtertext = filtertext.upper()
     returnvalue = []
-    print('Filter: ' + filtertext)
+    # print('Filter: ' + filtertext)
     found = False
     multilen = False
     if '*' in filtertext:
         multilen = True
 
-    print("Multilength: " + str(multilen))
+    # print("Multilength: " + str(multilen))
     filtertext = filtertext.replace("*","")
 
     for word in wordlist:
@@ -84,8 +86,9 @@ def runfilter(wordlist,filtertext):
     return returnvalue
 
 def subanagrams(wordlist,filtertext):
+    filtertext = filtertext.upper()
     returnvalue = []
-    print('Filter: ' + filtertext)
+    # print('Filter: ' + filtertext)
     found = False
 
     for word in wordlist:
@@ -120,6 +123,7 @@ def subanagrams(wordlist,filtertext):
     return returnvalue
 
 def createsublist(wordlist,filtertext, size = 0):
+    filtertext = filtertext.upper()
     sublist = []
 
     for word in wordlist:
@@ -167,6 +171,7 @@ def subcontains(word,word2):
         return False
 
 def possibilityhelper(wordlist,filtertext):
+    filtertext = filtertext.upper()
     returnvalue = []
     for element in itertools.product(*wordlist):
         teststring = ''.join(element)
@@ -187,8 +192,9 @@ def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
     # Suggestion for long words, use the subanagrams to find words that you like, then reduce the letters in the
     # big word to reduce the workload
     returnvalue = []
+    filtertext = filtertext.upper()
     pcombos = find_sums(len(filtertext))
-    print(pcombos)
+    # print(pcombos)
     sublist = createsublist(wordlist, filtertext)
 
     for wordset in pcombos:
@@ -220,12 +226,15 @@ def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
 allwords = readdict("Woorde.csv")
 timestart = datetime.now()
 
-f = open("output.txt","w")
-#t = subanagrams(allwords,"PIENKPIENKSONOP")
+
+#t = subanagrams(allwords,"PARAAT")
+t = wordcombofinder(allwords,"bewaar")
+print(t)
 #f.write(repr(t)+"\n")
-t = wordcombofinder(allwords,"INGENIEURSWESE",2,5,5)
-f.write(repr(t)+"\n")
-f.close()
+#t = wordcombofinder(allwords,"INGENIEURSWESE",2,5,5)
+# f = open("output.txt","w")
+# f.write(repr(t)+"\n")
+# f.close()
 # runfilter(allwords,'se.a.')
 
 print(datetime.now() - timestart)
