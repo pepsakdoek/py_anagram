@@ -1,7 +1,5 @@
 import itertools
 import numpy as np
-from datetime import datetime
-
 
 def contains(needle,haystack):
     tempstack = sorted(haystack)
@@ -41,8 +39,9 @@ def readdict(dname):
     # print(len(allwords))
     return allwords
 
-def runfilter(wordlist,filtertext):
+def runfilter(wordlist,filtertext,excludeletters = ''):
     filtertext = filtertext.upper()
+    excludeletters = excludeletters.upper()
     returnvalue = []
     # print('Filter: ' + filtertext)
     found = False
@@ -64,10 +63,14 @@ def runfilter(wordlist,filtertext):
         for x in range(len(word)):
             if x >= len(filtertext):
                 continue
+            # immediately filter out exclude words
+            if word[x] in excludeletters:
+                matching = False
+                continue
             if filtertext[x] == ".":
                 continue
                 # Case insensitive please
-            elif filtertext[x].upper() != word[x].upper() and not multilen:
+            elif filtertext[x] != word[x] and not multilen:
                 matching = False
                 continue
             elif multilen:
@@ -222,54 +225,3 @@ def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
 
     return returnvalue
 
-# tests and usage
-allwords = readdict("Woorde.csv")
-timestart = datetime.now()
-
-
-#t = subanagrams(allwords,"PARAAT")
-t = wordcombofinder(allwords,"bewaar")
-print(t)
-#f.write(repr(t)+"\n")
-#t = wordcombofinder(allwords,"INGENIEURSWESE",2,5,5)
-# f = open("output.txt","w")
-# f.write(repr(t)+"\n")
-# f.close()
-# runfilter(allwords,'se.a.')
-
-print(datetime.now() - timestart)
-
-
-# runfilter(allwords,'V.D.')
-# runfilter(allwords,'S.P.R')
-# runfilter(allwords,'.S.A')
-
-# runfilter(allwords,'..R.G.T..')
-# runfilter(allwords,'D.P..')
-# runfilter(allwords,'.S.U.O.I..')
-# runfilter(allwords,'..I...O.')
-# runfilter(allwords,'..P.I')
-# runfilter(allwords,'...A.U')
-
-
-# kennis pikwykuke
-# puik wykke
-# wykke
-
-# Konneksie ppinop
-# pop inp
-
-# poens iinnekpkop
-# knip inekop
-# knie
-# op
-
-# NOPPIES KINNEKOP
-# PONS PIE
-# PIENK
-# NOK
-
-# KNOP PIESPINNEKO
-# IN PIESPNEKO
-# NIKS PEPEO
-# POEPE
