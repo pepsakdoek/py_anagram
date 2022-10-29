@@ -39,9 +39,10 @@ def readdict(dname):
     # print(len(allwords))
     return allwords
 
-def runfilter(wordlist,filtertext,excludeletters = ''):
+def runfilter(wordlist,filtertext,excludeletters = '',mustcontain=''):
     filtertext = filtertext.upper()
     excludeletters = excludeletters.upper()
+    mustcontain = mustcontain.upper()
     returnvalue = []
     # print('Filter: ' + filtertext)
     found = False
@@ -80,10 +81,16 @@ def runfilter(wordlist,filtertext,excludeletters = ''):
                 continue
 
         if matching and multilen:
-            returnvalue.append(word)
+            if mustcontain == '':
+                returnvalue.append(word)
+            elif set(mustcontain).issubset(set(word)):
+                returnvalue.append(word)
 
         elif matching and len(word) == len(filtertext):
-            returnvalue.append(word)
+            if mustcontain == '':
+                returnvalue.append(word)
+            elif set(mustcontain).issubset(set(word)):
+                returnvalue.append(word)
 
 
     return returnvalue
