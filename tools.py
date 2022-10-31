@@ -68,15 +68,17 @@ def runfilter(wordlist,filtertext,excludeletters = '',mustcontain=''):
             if word[x] in excludeletters:
                 matching = False
                 continue
+            # any letter
             if filtertext[x] == ".":
                 continue
-                # Case insensitive please
+            # match the letter to the location
             elif filtertext[x] != word[x] and not multilen:
                 matching = False
                 continue
             elif multilen:
                 matching = False
-                if contains(filtertext,word):
+                # Todo multilen is implemented incompletely / incorrectly
+                if contains(filtertext, word):
                     matching = True
                 continue
 
@@ -91,7 +93,6 @@ def runfilter(wordlist,filtertext,excludeletters = '',mustcontain=''):
                 returnvalue.append(word)
             elif set(mustcontain).issubset(set(word)):
                 returnvalue.append(word)
-
 
     return returnvalue
 

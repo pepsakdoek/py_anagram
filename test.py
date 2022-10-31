@@ -6,7 +6,7 @@ a = t.readdict("Woorde.csv")
 timestart = datetime.now()
 
 
-t1 = t.runfilter(a,'.ra..','stegf')
+# t1 = t.runfilter(a,'.ra..','stegf')
 print(t1)
 
 
