@@ -85,6 +85,7 @@ def runfilter(wordlist,filtertext,excludeletters = '',mustcontain='',charcombos=
         # array with [0] being the letter, and [1:] being the positions it's not allowed to be
 
         for charcombo in charcombos:
+            if len(charcombo) == 0: continue
             letter = charcombo[0]
             nonpositions = charcombo[1:]
             for pos in nonpositions:
