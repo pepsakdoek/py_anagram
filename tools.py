@@ -38,7 +38,7 @@ def readdict(dname):
     # print(len(allwords))
     return allwords
 
-def runfilter(wordlist,filtertext,excludeletters = '',mustcontain='',charcombos=[{}]):
+def runfilter(wordlist,filtertext,excludeletters = '',mustcontain='',charcombos=[[]]):
     filtertext = filtertext.upper()
     excludeletters = excludeletters.upper()
     mustcontain = mustcontain.upper()
@@ -85,8 +85,8 @@ def runfilter(wordlist,filtertext,excludeletters = '',mustcontain='',charcombos=
         # array with [0] being the letter, and [1:] being the positions it's not allowed to be
 
         for charcombo in charcombos:
-            if len(charcombo) == 0: continue
-            letter = charcombo[0]
+            if len(charcombo) == 0 : continue
+            letter = charcombo[0].upper()
             nonpositions = charcombo[1:]
             for pos in nonpositions:
                 if word[pos] == letter:
