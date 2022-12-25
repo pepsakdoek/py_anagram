@@ -3,19 +3,8 @@ from datetime import datetime
 
 # tests and usage
 a = t.readdict("Woorde.csv")
+e = t.readdict("words_alpha.txt")
 timestart = datetime.now()
-
-
-# t1 = t.runfilter(a,'.ra..','stegf')
-print(t1)
-
-
-#f = open("output.txt","w")
-#f.write(repr(t)+"\n")
-#f.close(
-
-
-print(datetime.now() - timestart)
 
 
 

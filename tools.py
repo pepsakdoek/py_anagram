@@ -1,6 +1,5 @@
 import itertools
 import numpy as np
-
 def contains(needle,haystack):
     tempstack = sorted(haystack)
     tempn = sorted(needle)
@@ -39,12 +38,12 @@ def readdict(dname):
     # print(len(allwords))
     return allwords
 
-def runfilter(wordlist,filtertext,excludeletters = '',mustcontain=''):
+def runfilter(wordlist,filtertext,excludeletters = '',mustcontain='',charcombos=[{}]):
     filtertext = filtertext.upper()
     excludeletters = excludeletters.upper()
     mustcontain = mustcontain.upper()
     returnvalue = []
-    # print('Filter: ' + filtertext)
+    # print('Filter: ' + filtertext
     found = False
     multilen = False
     if '*' in filtertext:
@@ -81,6 +80,16 @@ def runfilter(wordlist,filtertext,excludeletters = '',mustcontain=''):
                 if contains(filtertext, word):
                     matching = True
                 continue
+
+        # char combos are letters with positions they can't be
+        # array with [0] being the letter, and [1:] being the positions it's not allowed to be
+
+        for charcombo in charcombos:
+            letter = charcombo[0]
+            nonpositions = charcombo[1:]
+            for pos in nonpositions:
+                if word[pos] == letter:
+                    matching = False
 
         if matching and multilen:
             if mustcontain == '':
