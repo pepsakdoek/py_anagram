@@ -243,3 +243,12 @@ def wordcombofinder(wordlist,filtertext,minlength = 3,minmax = 3, maxwords = 4):
 
     return returnvalue
 
+def letterdistribution(wordlist):
+    letters = {}
+    for word in wordlist:
+        for letter in word:
+            if letter in letters:
+                letters[letter] += 1
+            else:
+                letters[letter] = 1
+    return letters

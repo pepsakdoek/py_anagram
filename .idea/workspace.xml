@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="20a16670-846b-46fa-988f-6d21e3c904ae" name="Changes" comment="Word added to afrikaans list">
+      <change beforePath="$PROJECT_DIR$/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Fm2M4wIsrfjEw03Lr2fsXfYcnD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pepsa/PycharmProjects/py_anagram&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pepsa\PycharmProjects\py_anagram" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="tools" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pyTea" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\pepsa\PycharmProjects\py_anagram\tools.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20a16670-846b-46fa-988f-6d21e3c904ae" name="Changes" comment="" />
+      <created>1665082888609</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665082888609</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added exclude letters in the filter. Restructured code into a tools and a test section">
+      <created>1666336284878</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666336284878</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added letters that must be included (optional). Duplicates are not checked now. Maybe later.">
+      <created>1667085590407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667085590407</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added non-positions for characters (for wordle)&#10;Added wordleanswerlist.txt (from https://raw.githubusercontent.com/tcondell872/wordle-answer-list/main/wordleans.txt)&#10;Added wordlelist.txt (from https://github.com/tabatkins/wordle-list/blob/main/words)">
+      <created>1671996652058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671996652058</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix bug on empty charcombos">
+      <created>1672006922023</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672006922023</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix bug on empty charcombos, and uppercase the compare char">
+      <created>1672011944114</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672011944114</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix bug on empty charcombos, and uppercase the compare char">
+      <created>1672154220807</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672154220807</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Word added to afrikaans list">
+      <created>1677709719906</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677709719906</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Word added to afrikaans list">
+      <created>1700233646641</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700233646641</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added exclude letters in the filter. Restructured code into a tools and a test section" />
+    <MESSAGE value="Added letters that must be included (optional). Duplicates are not checked now. Maybe later." />
+    <MESSAGE value="Added non-positions for characters (for wordle)&#10;Added wordleanswerlist.txt (from https://raw.githubusercontent.com/tcondell872/wordle-answer-list/main/wordleans.txt)&#10;Added wordlelist.txt (from https://github.com/tabatkins/wordle-list/blob/main/words)" />
+    <MESSAGE value="Fix bug on empty charcombos" />
+    <MESSAGE value="Fix bug on empty charcombos, and uppercase the compare char" />
+    <MESSAGE value="Word added to afrikaans list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Word added to afrikaans list" />
+  </component>
+</project>
