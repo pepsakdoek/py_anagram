@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20a16670-846b-46fa-988f-6d21e3c904ae" name="Changes" comment="Added letterdistribution function">
+    <list default="true" id="20a16670-846b-46fa-988f-6d21e3c904ae" name="Changes" comment="Add wordsubsets function (useful for double filtering words where they meet, currently only supports one letter overlaps)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordleanswerlist" beforeDir="false" afterPath="$PROJECT_DIR$/wordleanswerlist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wordleanswerlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/wordleanswerlist.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701250444702</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add wordsubsets function (useful for double filtering words where they meet, currently only supports one letter overlaps)">
+      <created>1729591247308</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729591247308</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +173,7 @@
     <MESSAGE value="Fix bug on empty charcombos, and uppercase the compare char" />
     <MESSAGE value="Word added to afrikaans list" />
     <MESSAGE value="Added letterdistribution function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added letterdistribution function" />
+    <MESSAGE value="Add wordsubsets function (useful for double filtering words where they meet, currently only supports one letter overlaps)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add wordsubsets function (useful for double filtering words where they meet, currently only supports one letter overlaps)" />
   </component>
 </project>

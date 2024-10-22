@@ -256,6 +256,7 @@ def letterdistribution(wordlist):
     return df
 
 def wordsubsets(wordlist1, letter1, wordlist2, letter2):
+
     # the idea of this is to check which letters at letter1 and letter2 overlap  (word arrays start at 1 not at 0, so
     # letter1/2 is 'fixed' so 3 means 3rd letter
     # used for when you set a crossword and you have intersections and you want to get the list of words which are available
@@ -264,14 +265,16 @@ def wordsubsets(wordlist1, letter1, wordlist2, letter2):
     # run this on filtered datasets it will try all words in both sets, so it's a cartesean join
 
     returnarr = []
+    letters = []
     for word1 in wordlist1:
         for word2 in wordlist2:
             if word1[letter1-1] == word2[letter2-1]:
                 wordcombination = []
                 wordcombination.append(word1[letter1-1])
+                letters.append(word1[letter1-1])
                 wordcombination.append(word1)
                 wordcombination.append(word2)
                 returnarr.append(wordcombination)
+    returnarr.insert(0,list(set(letters
+                                )))
     return returnarr
-
-
